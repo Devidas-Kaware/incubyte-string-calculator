@@ -76,14 +76,18 @@ public class StringCalculatorShould {
 	@Test
 	void stringWithAllowMultipleDelimiters() {
 		StringCalculator stringCalculator = new StringCalculator();
-		// Numbers bigger than 1000 should be ignored
+		// Allow multiple delimiters like this:
 		assertEquals(6, stringCalculator.add1("//[*][%]\\n1*2%3"));
 	}
-	
+
 	@Test
 	void stringWithDelimeterAnyLength() {
 		StringCalculator stringCalculator = new StringCalculator();
-		// Numbers bigger than 1000 should be ignored
+		// Delimiters can be of any length.
+		// . make sure you can also handle multiple delimiters with length longer than
+		// one char
+		// for example
+		// “//[**][%%]\n1**2%%3” == 6.
 		assertEquals(6, stringCalculator.add1("//[***]\\n1***2***3"));
 	}
 
