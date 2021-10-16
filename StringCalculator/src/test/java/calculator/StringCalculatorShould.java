@@ -21,5 +21,12 @@ public class StringCalculatorShould {
 		//String with single number will return that number.
 		assertEquals(1, stringCalculator.add("1"));
 	}
+	
+	@Test
+	void stringWithTwoNumberCommaDelimterReturnNumberAsSum() {
+		StringCalculator stringCalculator = new StringCalculator();
+		// return sum of comma seperated numbers
+		assertEquals(3, stringCalculator.add("1,2"));
+	}
 
 }
