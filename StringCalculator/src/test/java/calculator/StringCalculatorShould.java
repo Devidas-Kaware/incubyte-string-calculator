@@ -65,12 +65,19 @@ public class StringCalculatorShould {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@Test
 	void stringWithNumbersBiggerThan1000ShouldBeIgnored() {
 		StringCalculator stringCalculator = new StringCalculator();
 		// Numbers bigger than 1000 should be ignored
 		assertEquals(2, stringCalculator.add("2,1001"));
+	}
+
+	@Test
+	void stringWithAllowMultipleDelimiters() {
+		StringCalculator stringCalculator = new StringCalculator();
+		// Numbers bigger than 1000 should be ignored
+		assertEquals(6, stringCalculator.add1("//[***]\\n1***2***3"));
 	}
 
 }
