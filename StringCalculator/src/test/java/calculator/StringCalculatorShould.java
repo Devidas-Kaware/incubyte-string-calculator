@@ -18,15 +18,22 @@ public class StringCalculatorShould {
 	@Test
 	void stringWithSingleNumberShouldReturnNumberAsInt() {
 		StringCalculator stringCalculator = new StringCalculator();
-		//String with single number will return that number.
+		// String with single number will return that number.
 		assertEquals(1, stringCalculator.add("1"));
 	}
-	
+
 	@Test
 	void stringWithTwoNumberCommaDelimterReturnNumberAsSum() {
 		StringCalculator stringCalculator = new StringCalculator();
 		// return sum of comma seperated numbers
 		assertEquals(3, stringCalculator.add("1,2"));
+	}
+
+	@Test
+	void stringWithUnknownNumberWithCommaDelimterReturnNumberAsSum() {
+		StringCalculator stringCalculator = new StringCalculator();
+		// Allow the Add method to handle an unknown amount of numbers
+		assertEquals(10, stringCalculator.add("1,2,3,4"));
 	}
 
 }
