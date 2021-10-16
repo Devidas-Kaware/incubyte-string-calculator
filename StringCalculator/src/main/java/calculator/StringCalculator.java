@@ -20,7 +20,12 @@ public class StringCalculator {
 	}
 
 	// for String to integer convert
-	private int stringToIntegerConvertor(String[] numbers) {
+	private int stringToIntegerConvertor(String[] numbers) throws RuntimeException {
+		for (String num : numbers) {
+			if (Integer.parseInt(num) <= 0) {
+				throw new RuntimeException("Negatives Numbers not allowed");
+			}
+		}
 		int sum = 0;
 		for (String num : numbers) {
 			sum += Integer.parseInt(num);

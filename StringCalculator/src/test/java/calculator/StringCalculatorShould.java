@@ -35,12 +35,24 @@ public class StringCalculatorShould {
 		// Allow the Add method to handle an unknown amount of numbers
 		assertEquals(10, stringCalculator.add("1,2,3,4"));
 	}
-	
+
 	@Test
 	void stringWithNewLinesAndCommBetweenNumbersAndReturnSum() {
 		StringCalculator stringCalculator = new StringCalculator();
 		// Allow the Add method to handle new lines between numbers (instead of commas)
 		assertEquals(6, stringCalculator.add("1\n2,3"));
-	}	
+	}
+
+	@Test()
+	void stringWithWithNegativeNumberThrowException() {
+		StringCalculator stringCalculator = new StringCalculator();
+		// Calling Add with a negative number will throw an exception “negatives not
+		// allowed” -and the negative that was passed.
+		try {
+			stringCalculator.add("3,-6,15,-18,46,33");
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
