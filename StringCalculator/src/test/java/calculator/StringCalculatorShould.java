@@ -49,7 +49,18 @@ public class StringCalculatorShould {
 		// Calling Add with a negative number will throw an exception “negatives not
 		// allowed” -and the negative that was passed.
 		try {
-			stringCalculator.add("3,-6,15,-18,46,33");
+			stringCalculator.add("3,-6,15,18,-46,33");
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Test()
+	void stringWithWithMultipleNegativeNumberThrowException() {
+		StringCalculator stringCalculator = new StringCalculator();
+		// If there are multiple negatives, show all of them in the exception message
+		try {
+			stringCalculator.add("3,-6,15,18,-46,33");
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}

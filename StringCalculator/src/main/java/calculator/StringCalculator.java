@@ -1,5 +1,8 @@
 package main.java.calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
 	private final String delimeter = ",|\n";
@@ -21,10 +24,15 @@ public class StringCalculator {
 
 	// for String to integer convert
 	private int stringToIntegerConvertor(String[] numbers) throws RuntimeException {
+		List<Integer> list = new ArrayList<>();
 		for (String num : numbers) {
 			if (Integer.parseInt(num) <= 0) {
-				throw new RuntimeException("Negatives Numbers not allowed");
+				// throw new RuntimeException("Negatives Numbers not allowed");
+				list.add(Integer.parseInt(num));
 			}
+		}
+		if (list.size() > 0) {
+			throw new RuntimeException("Negatives Numbers not allowed" + list.toString());
 		}
 		int sum = 0;
 		for (String num : numbers) {
