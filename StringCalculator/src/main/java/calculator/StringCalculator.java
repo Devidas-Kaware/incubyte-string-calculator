@@ -2,8 +2,10 @@ package main.java.calculator;
 
 public class StringCalculator {
 
+	private final String delimeter = ",|\n";
+
 	public int add(String input) {
-		String[] numbers = input.split(",");
+		String[] numbers = input.split(delimeter);
 		if (isEmpty(input)) {
 			return 0;
 		} else {
