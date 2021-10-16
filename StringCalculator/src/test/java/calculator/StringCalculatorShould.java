@@ -49,7 +49,7 @@ public class StringCalculatorShould {
 		// Calling Add with a negative number will throw an exception “negatives not
 		// allowed” -and the negative that was passed.
 		try {
-			stringCalculator.add("3,-6,15,18,-46,33");
+			stringCalculator.add("3,-6,15,18,46,33");
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
@@ -64,6 +64,13 @@ public class StringCalculatorShould {
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@Test
+	void stringWithNumbersBiggerThan1000ShouldBeIgnored() {
+		StringCalculator stringCalculator = new StringCalculator();
+		// Numbers bigger than 1000 should be ignored
+		assertEquals(2, stringCalculator.add("2,1001"));
 	}
 
 }

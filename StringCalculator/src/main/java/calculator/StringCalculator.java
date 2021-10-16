@@ -1,5 +1,7 @@
 package main.java.calculator;
 
+import static org.hamcrest.CoreMatchers.containsString;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,9 +38,11 @@ public class StringCalculator {
 		}
 		int sum = 0;
 		for (String num : numbers) {
+			if (Integer.parseInt(num) > 1000) {
+				continue;
+			}
 			sum += Integer.parseInt(num);
 		}
-
 		return sum;
 	}
 
